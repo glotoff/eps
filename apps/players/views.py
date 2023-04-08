@@ -1,24 +1,17 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
-
-
-
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .models import Player
 
 @login_required(login_url="/login/")
 def index(request):
     context = {'segment': 'index'}
 
-    html_template = loader.get_template('home/index.html')
+    html_template = loader.get_template('players/index.html')
     return HttpResponse(html_template.render(context, request))
-
 
 @login_required(login_url="/login/")
 def pages(request):
@@ -33,11 +26,7 @@ def pages(request):
             return HttpResponseRedirect(reverse('admin:index'))
         context['segment'] = load_template
 
-        html_template = loader.get_template('home/' + load_template)
-
-        if load_template == 'sg-test.html':
-            context = {"test": "zzz"}
-            return HttpResponse(html_template.render(context, request))
+        html_template = loader.get_template('players/' + load_template)
 
         return HttpResponse(html_template.render(context, request))
 
@@ -49,3 +38,12 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+class PlayerListView(ListView):
+    model = Player
+    template_name = 'player_list.html'
+
+
+class PlayerCreateView(CreateView):
+    model = Player
+    fields = ['first_name', 'last_name', 'date_of_birth', 'batting_style', 'bowling_style', 'role', 'club']
+    template_name = 'player_form.html'

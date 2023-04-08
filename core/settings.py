@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.home'
+    'apps.home',
+    'apps.players'
 ]
-#'apps.players'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

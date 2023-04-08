@@ -1,0 +1,109 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Colors {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="body flex-grow-1 px-3">
+    <div class="container-lg">
+      <div class="card mb-4">
+        <div class="card-header"> Theme colors111333{{ test }}</div>
+        <div class="card-body">
+		
+		<p class="text-medium-emphasis small">Using the most basic table markup, here’s how <code>.table</code>-based tables look in Bootstrap.</p>
+          <div class="example">
+            <ul class="nav nav-tabs" role="tablist">
+            </ul>
+            <div class="tab-content rounded-bottom">
+              <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-754">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">First</th>
+                      <th scope="col">Last</th>
+                      <th scope="col">Handle</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </div>
+		
+		
+		<!--
+          <div class="row">
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-primary theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Primary Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-secondary theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Secondary Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-success theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Success Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-danger theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Danger Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-warning theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Warning Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-info theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Info Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-light theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Light Color</h6>
+            </div>
+            <div class="col-xl-2 col-md-3 col-sm-4 col-6 mb-4">
+              <div class="bg-dark theme-color w-75 rounded mb-2" style="padding-top:75%"></div>
+              <h6>Brand Dark Color</h6>
+            </div>
+          </div>
+		  -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <!-- Plugins and scripts required by this view-->
+  <script src="/static/assets/vendors/@coreui/utils/js/coreui-utils.js"></script>
+  <script src="/static/assets/js/colors.js"></script>
+  <script>
+  </script>
+
+{% endblock javascripts %}
