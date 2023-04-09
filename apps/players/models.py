@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
+from auditlog.registry import auditlog
 
 
 # Create your models here.
@@ -12,3 +13,5 @@ class Player(models.Model):
     date_of_birth = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+auditlog.register(Player)

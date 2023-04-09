@@ -10,9 +10,9 @@ urlpatterns = [
 
     # The home page
     path('', views.index, name='home'),
-
+    path('list', views.PlayerListView.as_view(), name='players'),
     # Matches any html file
-    re_path(r'^.*\.*', views.pages, name='pages')
+    #re_path(r'^.*\.*', views.pages, name='pages')
     #re_path(r'^(?P<page_name>.+)/$', views.pages, name='pages')
 
 ]

@@ -74,14 +74,25 @@
         </div>
         <div class="header-divider"></div>
         <div class="container-fluid">
+        <!--TODO https://stackoverflow.com/questions/826889/how-to-implement-breadcrumbs-in-a-django-template-->
+            {% block breadcrumbs %}
+                <div class="breadcrumbs">
+                    <a href="{% url 'admin:index' %}">Home</a>
+                    {% block crumbs %}
+                        {% if title %} &rsaquo; {{ title }}{% endif %}
+                    {% endblock %}
+                </div>
+            {% endblock %}
+            <!--
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
               <li class="breadcrumb-item">
-                <!-- if breadcrumb is single--><span>Home</span>
+                <if breadcrumb is single><span>Home</span>
               </li>
               <li class="breadcrumb-item active"><span>Dashboard</span></li>
             </ol>
           </nav>
+            -->
         </div>
       </header>
       

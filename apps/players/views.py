@@ -38,6 +38,8 @@ def pages(request):
     except:
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
+
+
 class PlayerListView(ListView):
     model = Player
     template_name = 'player_list.html'
