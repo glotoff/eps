@@ -25,6 +25,8 @@ SHELL ["/bin/bash", "-c"]
 # running migrations
 RUN python manage.py migrate
 
+RUN python -m manage collectstatic --no-input
+
 # Expose the port the app will run on
 #EXPOSE 8000
 
