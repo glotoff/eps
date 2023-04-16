@@ -1,10 +1,10 @@
 version: '3.7'
 
-name: eps-dev-compose
+name: eps-dev
 
 services:
   nginx:
-    container_name: core_web
+    container_name: eps-core-nginx-web
     restart: on-failure
     image: nginx:stable
     volumes:
@@ -17,7 +17,8 @@ services:
   web:
     environment:
         - DATABASE_URL=sqlite:////data/db.sqlite3
-    container_name: core_app
+    container_name: eps-core-django-app
+    #build: .
     build: .
     restart: always
     env_file: .env
