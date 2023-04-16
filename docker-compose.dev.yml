@@ -27,7 +27,7 @@ services:
       sh -c " python manage.py migrate &&
           gunicorn --bind 0.0.0.0:5000 --config gunicorn-cfg.py core.wsgi"       
     volumes:
-     - .:/app
+#     - .:/app
      - static_volume:/app/staticfiles
      - sqlitedatavolume:/data
 #    depends_on:
