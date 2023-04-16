@@ -17,6 +17,7 @@ services:
   web:
     environment:
         - DATABASE_URL=sqlite:////data/db.sqlite3
+        - SERVER=eps-dev.glotov.net
     container_name: eps-core-django-app-deploy
     image: glotoff/eps:dev
     restart: always
