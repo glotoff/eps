@@ -18,22 +18,18 @@ services:
     environment:
         - DATABASE_URL=sqlite:////data/db.sqlite3
     container_name: eps-core-django-app
-    #build: .
     build: .
     restart: always
     env_file: .env
     ports:
       - "5000:5000"
-#    command: >
-#      sh -c " python manage.py migrate &&
-#          gunicorn CoreRoot.wsgi:application --bind 0.0.0.0:5000"       
+    command: >
+      sh -c " python manage.py migrate &&
+          gunicorn --bind 0.0.0.0:5000 --config gunicorn-cfg.py core.wsgi"       
     volumes:
      - .:/app
      - static_volume:/app/staticfiles
      - sqlitedatavolume:/data
-    command: >
-      sh -c " python manage.py migrate &&
-          gunicorn --bind 0.0.0.0:5000 --config gunicorn-cfg.py core.wsgi"   
 #    depends_on:
 #     - db
 #  db:
