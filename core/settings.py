@@ -4,6 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 import os, environ
+import dj_database_url
 
 env = environ.Env(
     # set casting, default value
@@ -28,9 +29,9 @@ ASSETS_ROOT = os.getenv('ASSETS_ROOT', '/static/assets')
 
 # load production server from .env
 ALLOWED_HOSTS        = ['localhost', 'localhost:85', '127.0.0.1',               env('SERVER', default='127.0.0.1') ]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + env('SERVER', default='127.0.0.1') ]
-
-# Application definition
+#ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:85', 'http://127.0.0.1', 'https://' + env('SERVER', default='127.0.0.1'),'http://' + env('SERVER', default='127.0.0.1') ]
+# Application definition,
 
 #Enable the inner home (home)
 INSTALLED_APPS = [
@@ -86,6 +87,21 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+
+#def_db_temp = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+#print(f"def_db_temp={def_db_temp}")
+
+#if os.path.isdir("/data"):
+#    print("The folder exists.")
+#else:
+#    print("The folder does not exist.")
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+}
+
+
+"""
 if os.environ.get('DB_ENGINE') and os.environ.get('DB_ENGINE') == "mysql":
     DATABASES = { 
       'default': {
@@ -104,6 +120,7 @@ else:
             'NAME': 'db.sqlite3',
         }
     }
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
