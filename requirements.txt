@@ -38,6 +38,7 @@ django-model-utils==4.3.1
 django-redis==5.2.0
 django-stubs==1.16.0
 django-stubs-ext==0.8.0
+djangorestframework==3.14.0
 docutils==0.19
 environ==1.0
 et-xmlfile==1.1.0

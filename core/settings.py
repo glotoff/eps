@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'auditlog',
     'import_export',
     'apps.home',
-    'apps.players'
+    'apps.players',
+    'apps.clubs',
+    'apps.tournaments',
+    'rest_framework'
 ]
 
 

@@ -4,7 +4,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from rest_framework import viewsets
 from .models import Player
+from .serializers import PlayerSerializer
 
 @login_required(login_url="/login/")
 def index(request):
@@ -49,3 +51,7 @@ class PlayerCreateView(CreateView):
     model = Player
     fields = ['first_name', 'last_name', 'date_of_birth', 'batting_style', 'bowling_style', 'role', 'club']
     template_name = 'player_form.html'
+
+class PlayerViewSet(viewsets.ModelViewSet):
+    queryset = Player.objects.all().order_by('first_name')
+    serializer_class = PlayerSerializer
